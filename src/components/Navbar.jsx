@@ -11,7 +11,7 @@ const Navbar = () => {
 
         <ul className="hidden md:flex gap-6 text-sm text-gray-800 font-medium">
           <li className="hover:text-[#e6b500] cursor-pointer">Home</li>
-          <li className="hover:text-[#e6b500] cursor-pointer">Sweets</li>
+          <a href="#sweets"><li className="hover:text-[#e6b500] cursor-pointer">Sweets</li></a>
           <li className="hover:text-[#e6b500] cursor-pointer">Savories</li>
           <li className="hover:text-[#e6b500] cursor-pointer">Bakes</li>
           <li className="hover:text-[#e6b500] cursor-pointer">Contact</li>
