@@ -4,23 +4,34 @@ const ExcellenceSection = () => {
   return (
     <>
       {/* Excellence Section */}
-      <section className="py-16 container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-serif text-center text-[#7B3F00] mb-12">
+      <section className="py-16 container mx-auto">
+        <h2 className="text-3xl md:text-5xl font-serif text-center mt-12 mb-6">
           Excellence in Every Morsel
         </h2>
+        <p className="px-2 md:px-20 lg:px-32 items-center text-center mb-12 leading-relaxed">
+              Mcube has grown to be synonymous with premium quality Indian Sweets. 
+              It has created a niche for itself for being one of the giftable brands in Tirunelveli today.
+            </p>
         <div className="flex justify-center">
           <img
-            src="/images/excellence.jpg"
+            src="/images/hero5.jpg"
             alt="Premium Indian sweets in tray"
-            className="rounded-xl shadow-md w-full max-w-xl"
+            className="w-full"
           />
         </div>
       </section>
 
       {/* Quality Section */}
-      <section className="py-16 bg-[#fdfbf8]">
+      <section className="py-16 bg-transparent">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center gap-10">
+            <div className="md:w-1/2">
+              <img
+                src="/images/hero1.jpg"
+                alt="Kaju Katli and other sweets"
+                className="rounded-lg shadow-sm w-full"
+              />
+            </div>
             <div className="md:w-1/2">
               <h2 className="text-3xl font-serif text-[#7B3F00] mb-4">
                 Quality that Delights in Every Bite
@@ -28,31 +39,16 @@ const ExcellenceSection = () => {
               <p className="text-[#5c3d18] mb-6 leading-relaxed">
                 At MCube Sweets, we blend tradition with precision. Every sweet is
                 prepared using premium-grade ingredients and time-honored recipes
-                that have delighted generations.
-              </p>
-              <p className="text-[#5c3d18] leading-relaxed">
-                From sourcing to crafting, our artisans ensure each bite brings
+                that have delighted generations.From sourcing to crafting, our artisans ensure each bite brings
                 joy, purity, and the authentic taste of India to your celebration.
               </p>
-            </div>
-            <div className="md:w-1/2 grid grid-cols-2 gap-4">
-              <img
-                src="/images/sweets1.jpg"
-                alt="Kaju Katli and other sweets"
-                className="rounded-lg shadow-sm w-full"
-              />
-              <img
-                src="/images/sweets2.jpg"
-                alt="Laddoos and barfis"
-                className="rounded-lg shadow-sm w-full"
-              />
             </div>
           </div>
         </div>
       </section>
 
       {/* About Us Section */}
-      <section className="py-16 container mx-auto px-4">
+      <section className="py-16 container mx-auto px-4" id="aboutus">
         <div className="flex flex-col md:flex-row items-center gap-10">
           <div className="md:w-1/2">
             <h3 className="text-lg font-medium text-[#8B4513] mb-2">

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Card } from './ui/card';
+import { Card } from './ui/card.jsx';
 import { CardContent } from './ui/card-content.jsx';
-import { Button } from './ui/button';
+import { Button } from './ui/button.jsx';
 
 
 const sweetData = [
@@ -70,7 +70,7 @@ const categories = [
   'Tea Time Snacks',
 ];
 
-const Savories = () => {
+const Savouries = () => {
   const [selectedCategory, setSelectedCategory] = useState('All Sweets');
   const [quantities, setQuantities] = useState({});
   const [weights, setWeights] = useState({});
@@ -114,7 +114,7 @@ const Savories = () => {
       </div>
 
       {/* Sweet Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id='savouries'>
         {filteredSweets.map((sweet) => (
           <Card key={sweet.id} className="rounded-xl shadow-md">
             <img
@@ -153,4 +153,4 @@ const Savories = () => {
   );
 };
 
-export default Savories;
+export default Savouries;

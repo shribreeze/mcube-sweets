@@ -5,7 +5,7 @@ const ContactUs = () => {
     <section className="py-16 px-4 md:px-20 bg-[#fdfbf8]">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl font-bold text-center mb-8">Contact Us</h2>
-        <form className="space-y-6">
+        <form className="space-y-6" id='contactus'>
           {/* Name and Email */}
           <div className="flex flex-col md:flex-row gap-4">
             <input

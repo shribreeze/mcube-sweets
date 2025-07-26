@@ -95,7 +95,7 @@ const BakesGrid = () => {
     <div className="max-w-6xl mx-auto px-4 py-12">
       <h2 className="text-3xl font-bold text-center mb-8">Bakes</h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="bakes">
         {currentItems.map((item) => (
           <div key={item.id} className="bg-white rounded-xl shadow-lg p-4 flex flex-col items-center text-center">
             <img src={item.image} alt={item.name} className="h-40 w-40 object-cover mb-4 rounded-lg" />
