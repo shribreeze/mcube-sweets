@@ -115,6 +115,9 @@ export default function SweetGrid() {
 
   return (
     <div className="px-4 py-8 max-w-screen-xl mx-auto">
+      <h2 className="text-3xl md:text-5xl lg:text-6xl text-center mt-8 mb-6">
+          Sweets
+        </h2>
       {/* Filters */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
         {categories.map((cat) => (

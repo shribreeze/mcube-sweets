@@ -2,7 +2,7 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <section className="bg-[url('/public/images/bgnew2.jpeg')] bg-cover bg-center bg-no-repeat flex items-center py-12 md:py-20">
+    <section className="bg-[url('/public/images/heroBG.jpeg')] bg-cover bg-center bg-no-repeat flex items-center py-12 md:py-20">
         <div className="md:w-full md:text-right max-w-7xl mx-auto px-8">
           <h1 className="text-4xl md:text-7xl font-bold text-white mb-6 leading-tight font-heading">
             Welcome to <br /> Mcube Sweets
