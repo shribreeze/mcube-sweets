@@ -1,154 +1,187 @@
 import React, { useState } from "react";
 
-const bakesData = [
+const sweetData = [
   {
     id: 1,
-    name: "Chocolate Cake",
-    price: 350,
-    image: "/bakes/chocolate_cake.jpg",
+    name: "Kaju Katli",
+    price: 500,
+    image: "https://via.placeholder.com/150",
+    category: "Ghee Sweets",
   },
   {
     id: 2,
-    name: "Cookies Box",
-    price: 180,
-    image: "/bakes/cookies_box.jpg",
+    name: "Ladoo",
+    price: 400,
+    image: "https://via.placeholder.com/150",
+    category: "Traditional Sweets",
   },
   {
     id: 3,
-    name: "Banana Bread",
-    price: 220,
-    image: "/bakes/banana_bread.jpg",
+    name: "Barfi",
+    price: 450,
+    image: "https://via.placeholder.com/150",
+    category: "All Sweets",
   },
   {
     id: 4,
-    name: "Fruit Tart",
+    name: "Soan Papdi",
     price: 300,
-    image: "/bakes/fruit_tart.jpg",
+    image: "https://via.placeholder.com/150",
+    category: "Tea Time Snacks",
   },
   {
     id: 5,
-    name: "Cupcakes (6 pcs)",
-    price: 240,
-    image: "/bakes/cupcakes.jpg",
+    name: "Rasgulla",
+    price: 380,
+    image: "https://via.placeholder.com/150",
+    category: "All Sweets",
   },
   {
     id: 6,
-    name: "Plum Cake",
-    price: 400,
-    image: "/bakes/plum_cake.jpg",
+    name: "Mysore Pak",
+    price: 420,
+    image: "https://via.placeholder.com/150",
+    category: "Ghee Sweets",
   },
   {
     id: 7,
-    name: "Brownies (4 pcs)",
-    price: 210,
-    image: "/bakes/brownies.jpg",
+    name: "Chikki",
+    price: 250,
+    image: "https://via.placeholder.com/150",
+    category: "Tea Time Snacks",
   },
   {
     id: 8,
-    name: "Donuts (6 pcs)",
-    price: 270,
-    image: "/bakes/donuts.jpg",
+    name: "Peda",
+    price: 390,
+    image: "https://via.placeholder.com/150",
+    category: "Traditional Sweets",
   },
-    {
-        id: 9,
-        name: "Cheesecake",
-        price: 380,
-        image: "/bakes/cheesecake.jpg",
-    },
-    {
-        id: 10,
-        name: "Pineapple Upside Down Cake",
-        price: 320,
-        image: "/bakes/pineapple_cake.jpg",
-    },
-
+  {
+    id: 9,
+    name: "Jalebi",
+    price: 320,
+    image: "https://via.placeholder.com/150",
+    category: "All Sweets",
+  },
+  {
+    id: 10,
+    name: "Halwa",
+    price: 310,
+    image: "https://via.placeholder.com/150",
+    category: "Traditional Sweets",
+  },
 ];
 
-const ITEMS_PER_PAGE = 4;
 
-const BakesGrid = () => {
-  const [page, setPage] = useState(1);
+export default function BakesGrid() {
   const [quantities, setQuantities] = useState({});
   const [weights, setWeights] = useState({});
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 4;
 
-  const totalPages = Math.ceil(bakesData.length / ITEMS_PER_PAGE);
-  const currentItems = bakesData.slice((page - 1) * ITEMS_PER_PAGE, page * ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(sweetData.length / itemsPerPage);
+  const paginatedSweets = sweetData.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
 
-  const handleQuantityChange = (id, amount) => {
+  const handleQuantity = (id, change) => {
     setQuantities((prev) => ({
       ...prev,
-      [id]: Math.max(1, (prev[id] || 1) + amount),
+      [id]: Math.max(1, (prev[id] || 1) + change),
     }));
   };
 
-  const handleWeightChange = (id, weight) => {
-    setWeights((prev) => ({ ...prev, [id]: weight }));
-  };
-
-  const handleAddToCart = (item) => {
-    const quantity = quantities[item.id] || 1;
-    const weight = weights[item.id] || "500g";
-    console.log("Added to cart:", { ...item, quantity, weight });
+  const handleWeight = (id, value) => {
+    setWeights((prev) => ({ ...prev, [id]: value }));
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-12">
-      <h2 className="text-3xl font-bold text-center mb-8">Bakes</h2>
+    <div className="px-4 py-8 max-w-screen-xl mx-auto">
+      <h2 className="text-3xl md:text-5xl lg:text-6xl text-center my-8" id="bakes">
+          Bakes
+      </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="bakes">
-        {currentItems.map((item) => (
-          <div key={item.id} className="bg-white rounded-xl shadow-lg p-4 flex flex-col items-center text-center">
-            <img src={item.image} alt={item.name} className="h-40 w-40 object-cover mb-4 rounded-lg" />
-            <h3 className="text-lg font-semibold">{item.name}</h3>
-            <p className="text-gray-600 mb-2">₹{item.price}</p>
+      {/* Sweets Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {paginatedSweets.map((sweet) => (
+          <div
+            key={sweet.id}
+            className="rounded-xl p-4 flex flex-col bg-transparent hover:border transition"
+          >
+            <img
+              src={sweet.image}
+              alt={sweet.name}
+              className="h-40 object-cover mb-3 rounded-md"
+            />
+            <h3 className="font-semibold text-xl">{sweet.name}</h3>
+            <div className="text-[#9c7e38] font-bold mt-1">₹{sweet.price}</div>
 
-            <select
-              value={weights[item.id] || "500g"}
-              onChange={(e) => handleWeightChange(item.id, e.target.value)}
-              className="border px-2 py-1 rounded mb-2 text-sm"
-            >
-              <option value="500g">500g</option>
-              <option value="1kg">1kg</option>
-            </select>
+            <div className="flex items-center justify-between my-3">
+              {/* Weight Dropdown */}
+              <select
+                className="mt-2 p-1 border border-[#9c7e38] rounded"
+                value={weights[sweet.id] || "500g"}
+                onChange={(e) => handleWeight(sweet.id, e.target.value)}
+              >
+                <option value="500g">500g</option>
+                <option value="1kg">1kg</option>
+                <option value="1kg">2kg</option>
+              </select>
 
-            <div className="flex items-center justify-center space-x-2 mb-3">
-              <button onClick={() => handleQuantityChange(item.id, -1)} className="px-2 py-1 bg-gray-200 rounded">
-                -
-              </button>
-              <span>{quantities[item.id] || 1}</span>
-              <button onClick={() => handleQuantityChange(item.id, 1)} className="px-2 py-1 bg-gray-200 rounded">
-                +
-              </button>
+              {/* Quantity & Cart */}
+                <div className="flex items-center gap-2 mt-2 p-1 border border-[#9c7e38] rounded">
+                  <button
+                    onClick={() => handleQuantity(sweet.id, -1)}
+                    className="bg-transparent px-2 rounded"
+                  >
+                    -
+                  </button>
+                  <span>{quantities[sweet.id] || 1}</span>
+                  <button
+                    onClick={() => handleQuantity(sweet.id, 1)}
+                    className="bg-transparent px-2 rounded"
+                  >
+                    +
+                  </button>
+                </div>
             </div>
-
-            <button
-              onClick={() => handleAddToCart(item)}
-              className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-full text-sm font-semibold"
-            >
-              Add to Cart
-            </button>
+              <button className="bg-[#9c7e38] cursor-pointer text-white px-4 py-1 rounded hover:text-black hover:bg-transparent hover:border transition">
+                Add to Cart
+              </button>
           </div>
         ))}
       </div>
 
       {/* Pagination */}
-      <div className="flex justify-center mt-10 space-x-3 text-lg font-semibold">
-        <button onClick={() => setPage(Math.max(1, page - 1))}>&lt;</button>
-        {[1, 2, 3, 4].map((pg) => (
+      <div className="flex justify-center mt-10 space-x-3 font-semibold">
+        <button
+          onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+          className="px-3 py-1 cursor-pointer"
+        >
+          &lt;
+        </button>
+        {Array.from({ length: totalPages }, (_, i) => (
           <button
-            key={pg}
-            onClick={() => setPage(pg)}
-            className={`w-8 h-8 rounded-full ${
-              pg === page ? "bg-yellow-500 text-white" : "text-gray-700"
+            key={i + 1}
+            onClick={() => setCurrentPage(i + 1)}
+            className={`px-3 py-1 rounded-full cursor-pointer ${
+              currentPage === i + 1
+                ? "bg-[#9c7e38] text-white"
+                : "hover:bg-transparent"
             }`}
           >
-            {pg}
+            {i + 1}
           </button>
         ))}
-        <button onClick={() => setPage(Math.min(totalPages, page + 1))}>&gt;</button>
+        <button
+          onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+          className="px-3 py-1 rounded cursor-pointer"
+        >
+          &gt;
+        </button>
       </div>
     </div>
   );
-};
-
-export default BakesGrid;
+}

@@ -1,156 +1,136 @@
-import React, { useState } from 'react';
-import { Card } from './ui/card.jsx';
-import { CardContent } from './ui/card-content.jsx';
-import { Button } from './ui/button.jsx';
-
+import React, { useState } from "react";
 
 const sweetData = [
   {
     id: 1,
-    name: 'Kaju Katli',
-    image: '/images/kaju-katli.jpg',
-    category: 'Ghee Sweets',
+    name: "Kaju Katli",
     price: 500,
+    image: "https://via.placeholder.com/150",
+    category: "Ghee Sweets",
   },
   {
     id: 2,
-    name: 'Motichoor Ladoo',
-    image: '/images/motichoor.jpg',
-    category: 'Traditional Sweets',
-    price: 450,
+    name: "Ladoo",
+    price: 400,
+    image: "https://via.placeholder.com/150",
+    category: "Traditional Sweets",
   },
   {
     id: 3,
-    name: 'Soan Papdi',
-    image: '/images/soan-papdi.jpg',
-    category: 'All Sweets',
-    price: 350,
+    name: "Barfi",
+    price: 450,
+    image: "https://via.placeholder.com/150",
+    category: "All Sweets",
   },
   {
     id: 4,
-    name: 'Dry Fruit Barfi',
-    image: '/images/barfi.jpg',
-    category: 'Tea Time Snacks',
-    price: 600,
+    name: "Soan Papdi",
+    price: 300,
+    image: "https://via.placeholder.com/150",
+    category: "Tea Time Snacks",
   },
   {
     id: 5,
-    name: 'Kaju Katli',
-    image: '/images/kaju-katli.jpg',
-    category: 'Ghee Sweets',
-    price: 500,
+    name: "Rasgulla",
+    price: 380,
+    image: "https://via.placeholder.com/150",
+    category: "All Sweets",
   },
   {
     id: 6,
-    name: 'Motichoor Ladoo',
-    image: '/images/motichoor.jpg',
-    category: 'Traditional Sweets',
-    price: 450,
+    name: "Mysore Pak",
+    price: 420,
+    image: "https://via.placeholder.com/150",
+    category: "Ghee Sweets",
   },
   {
     id: 7,
-    name: 'Soan Papdi',
-    image: '/images/soan-papdi.jpg',
-    category: 'All Sweets',
-    price: 350,
+    name: "Chikki",
+    price: 250,
+    image: "https://via.placeholder.com/150",
+    category: "Tea Time Snacks",
   },
   {
     id: 8,
-    name: 'Dry Fruit Barfi',
-    image: '/images/barfi.jpg',
-    category: 'Tea Time Snacks',
-    price: 600,
+    name: "Peda",
+    price: 390,
+    image: "https://via.placeholder.com/150",
+    category: "Traditional Sweets",
   },
 ];
 
-const categories = [
-  'All Sweets',
-  'Ghee Sweets',
-  'Traditional Sweets',
-  'Tea Time Snacks',
-];
 
-const Savouries = () => {
-  const [selectedCategory, setSelectedCategory] = useState('All Sweets');
+export default function Savouries() {
   const [quantities, setQuantities] = useState({});
   const [weights, setWeights] = useState({});
 
-  const handleQuantityChange = (id, delta) => {
+  const handleQuantity = (id, change) => {
     setQuantities((prev) => ({
       ...prev,
-      [id]: Math.max(0, (prev[id] || 1) + delta),
+      [id]: Math.max(1, (prev[id] || 1) + change),
     }));
   };
 
-  const handleWeightChange = (id, weight) => {
-    setWeights((prev) => ({
-      ...prev,
-      [id]: weight,
-    }));
+  const handleWeight = (id, value) => {
+    setWeights((prev) => ({ ...prev, [id]: value }));
   };
-
-  const filteredSweets = sweetData.filter((item) =>
-    selectedCategory === 'All Sweets' ? true : item.category === selectedCategory
-  );
 
   return (
-    <div className="px-4 py-10 container mx-auto">
-      {/* Category Filters */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-        {categories.map((cat) => (
-          <Card
-            key={cat}
-            className={`cursor-pointer border-2 text-center p-4 rounded-xl transition ${
-              selectedCategory === cat ? 'border-[#7B3F00] bg-[#fdfbf8]' : 'border-gray-200'
-            }`}
-            onClick={() => setSelectedCategory(cat)}
+    <div className="px-4 py-8 max-w-screen-xl mx-auto">
+      <h2 className="text-3xl md:text-5xl lg:text-6xl text-center my-8"  id="savouries">
+          Savouries
+      </h2>
+      
+      {/* Sweets Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {sweetData.map((sweet) => (
+          <div
+            key={sweet.id}
+            className="rounded-xl p-4 flex flex-col bg-transparent hover:border transition"
           >
-            <h3 className="text-lg font-semibold text-[#7B3F00]">{cat}</h3>
-            <p className="text-sm text-gray-600">
-              {sweetData.filter((s) => cat === 'All Sweets' || s.category === cat).length} Products
-            </p>
-          </Card>
-        ))}
-      </div>
-
-      {/* Sweet Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id='savouries'>
-        {filteredSweets.map((sweet) => (
-          <Card key={sweet.id} className="rounded-xl shadow-md">
             <img
               src={sweet.image}
               alt={sweet.name}
-              className="rounded-t-xl h-48 w-full object-cover"
+              className="h-40 object-cover mb-3 rounded-md"
             />
-            <CardContent className="p-4">
-              <h4 className="font-semibold text-[#7B3F00] text-lg mb-1">{sweet.name}</h4>
-              <p className="text-[#5c3d18] font-medium mb-2">₹{sweet.price}</p>
-              <div className="mb-3">
-                <select
-                  className="border rounded-md px-2 py-1 text-sm"
-                  onChange={(e) => handleWeightChange(sweet.id, e.target.value)}
-                  value={weights[sweet.id] || '500g'}
-                >
-                  <option value="500g">500g</option>
-                  <option value="1kg">1kg</option>
-                </select>
-              </div>
-              <div className="flex items-center justify-between gap-2">
-                <div className="flex items-center gap-1">
-                  <Button size="sm" onClick={() => handleQuantityChange(sweet.id, -1)}>-</Button>
+            <h3 className="font-semibold text-xl">{sweet.name}</h3>
+            <div className="text-[#9c7e38] font-bold mt-1">₹{sweet.price}</div>
+
+            <div className="flex items-center justify-between my-3">
+              {/* Weight Dropdown */}
+              <select
+                className="mt-2 p-1 border border-[#9c7e38] rounded"
+                value={weights[sweet.id] || "500g"}
+                onChange={(e) => handleWeight(sweet.id, e.target.value)}
+              >
+                <option value="500g">500g</option>
+                <option value="1kg">1kg</option>
+                <option value="1kg">2kg</option>
+              </select>
+
+              {/* Quantity & Cart */}
+                <div className="flex items-center gap-2 mt-2 p-1  border border-[#9c7e38] rounded">
+                  <button
+                    onClick={() => handleQuantity(sweet.id, -1)}
+                    className="bg-transparent px-2 rounded"
+                  >
+                    -
+                  </button>
                   <span>{quantities[sweet.id] || 1}</span>
-                  <Button size="sm" onClick={() => handleQuantityChange(sweet.id, 1)}>+</Button>
+                  <button
+                    onClick={() => handleQuantity(sweet.id, 1)}
+                    className="bg-transparent px-2 rounded"
+                  >
+                    +
+                  </button>
                 </div>
-                <Button size="sm" className="bg-[#7B3F00] text-white">
-                  Add to Cart
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
+            </div>
+              <button className="bg-[#9c7e38] cursor-pointer text-white px-4 py-1 rounded hover:text-black hover:bg-transparent hover:border transition">
+                Add to Cart
+              </button>
+          </div>
         ))}
       </div>
     </div>
   );
-};
-
-export default Savouries;
+}

@@ -71,6 +71,48 @@ const sweetData = [
     image: "https://via.placeholder.com/150",
     category: "Traditional Sweets",
   },
+  {
+    id: 11,
+    name: "Kaju Katli",
+    price: 500,
+    image: "https://via.placeholder.com/150",
+    category: "Ghee Sweets",
+  },
+  {
+    id: 12,
+    name: "Ladoo",
+    price: 400,
+    image: "https://via.placeholder.com/150",
+    category: "Traditional Sweets",
+  },
+  {
+    id: 13,
+    name: "Barfi",
+    price: 450,
+    image: "https://via.placeholder.com/150",
+    category: "All Sweets",
+  },
+  {
+    id: 14,
+    name: "Soan Papdi",
+    price: 300,
+    image: "https://via.placeholder.com/150",
+    category: "Tea Time Snacks",
+  },
+  {
+    id: 15,
+    name: "Rasgulla",
+    price: 380,
+    image: "https://via.placeholder.com/150",
+    category: "All Sweets",
+  },
+  {
+    id: 16,
+    name: "Mysore Pak",
+    price: 420,
+    image: "https://via.placeholder.com/150",
+    category: "Ghee Sweets",
+  },
 ];
 
 const categories = [
@@ -115,7 +157,7 @@ export default function SweetGrid() {
 
   return (
     <div className="px-4 py-8 max-w-screen-xl mx-auto">
-      <h2 className="text-3xl md:text-5xl lg:text-6xl text-center mt-8">
+      <h2 className="text-3xl md:text-5xl lg:text-6xl text-center mt-8" id="sweets">
           Sweets
       </h2>
         <div className="flex justify-center gap-12 md:gap-24 lg:gap-24 m-12 flex-wrap">
@@ -147,7 +189,7 @@ export default function SweetGrid() {
             }}
             className={`cursor-pointer border rounded-xl text-center transition ${
               selectedCategory === cat
-                ? "bg-transparent border-yellow-400"
+                ? "bg-transparent border-[#9c7e38]"
                 : "bg-transparent border-none"
             }`}
           >
@@ -161,7 +203,7 @@ export default function SweetGrid() {
       </div>
 
       {/* Sweets Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="sweets">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {paginatedSweets.map((sweet) => (
           <div
             key={sweet.id}
@@ -178,7 +220,7 @@ export default function SweetGrid() {
             <div className="flex items-center justify-between my-3">
               {/* Weight Dropdown */}
               <select
-                className="mt-2 p-1 border rounded"
+                className="mt-2 p-1 border border-[#9c7e38] rounded"
                 value={weights[sweet.id] || "500g"}
                 onChange={(e) => handleWeight(sweet.id, e.target.value)}
               >
@@ -188,7 +230,7 @@ export default function SweetGrid() {
               </select>
 
               {/* Quantity & Cart */}
-                <div className="flex items-center gap-2 mt-2 p-1  border rounded">
+                <div className="flex items-center gap-2 mt-2 p-1  border border-[#9c7e38] rounded">
                   <button
                     onClick={() => handleQuantity(sweet.id, -1)}
                     className="bg-transparent px-2 rounded"
@@ -225,7 +267,7 @@ export default function SweetGrid() {
             onClick={() => setCurrentPage(i + 1)}
             className={`px-3 py-1 rounded-full cursor-pointer ${
               currentPage === i + 1
-                ? "bg-yellow-400 text-white"
+                ? "bg-[#9c7e38] text-white"
                 : "hover:bg-transparent"
             }`}
           >

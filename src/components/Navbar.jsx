@@ -23,7 +23,7 @@ const Header = () => {
               <a
                 key={index}
                 href={`#${item.toLowerCase().replace(/\s+/g, "")}`}
-                className="text-neutral-900 active:text-amber-800 hover:text-amber-700 transition"
+                className="text-neutral-900 active:text-amber-800 hover:text-[#9c7e38] transition"
               >
                 {item}
               </a>
@@ -31,21 +31,21 @@ const Header = () => {
           </nav>
 
           {/* Icons */}
-          <div className="hidden md:flex items-center space-x-6 text-amber-900">
-            <button className="hover:text-amber-700">
+          <div className="hidden md:flex items-center space-x-6 text-gray-900">
+            <button className="hover:text-[#9c7e38] cursor-pointer">
               <FiSearch size={20} />
             </button>
-            <button className="hover:text-amber-700">
+            <button className="hover:text-[#9c7e38] cursor-pointer">
               <FiUser size={20} />
             </button>
-            <button className="hover:text-amber-700">
+            <button className="hover:text-[#9c7e38] cursor-pointer">
               <FiShoppingCart size={20} />
             </button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-amber-900"
+            className="md:hidden text-gray-900"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
@@ -55,27 +55,27 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white px-4 pt-4 pb-6 border-t border-amber-100">
+        <div className="md:hidden bg-transparent px-4 pt-4 pb-6 border-t border-[#9c7e38]">
           <nav className="flex flex-col space-y-4">
             {["Home", "About Us", "Sweets", "Shop", "Contact Us"].map((item, index) => (
               <a
                 key={index}
                 href={`/${item.toLowerCase().replace(/\s+/g, "")}`}
-                className="text-amber-900 hover:text-amber-700 font-medium"
+                className="text-gray-900 hover:text-[#9c7e38] font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item}
               </a>
             ))}
           </nav>
-          <div className="flex items-center space-x-4 mt-4 pt-4 border-t border-amber-100 text-amber-900">
-            <button className="hover:text-amber-700">
+          <div className="flex items-center space-x-4 mt-4 pt-4 border-t border-[#9c7e38] text-gray-900">
+            <button className="hover:text-[#9c7e38]">
               <FiSearch size={20} />
             </button>
-            <button className="hover:text-amber-700">
+            <button className="hover:text-[#9c7e38]">
               <FiUser size={20} />
             </button>
-            <button className="hover:text-amber-700">
+            <button className="hover:text-[#9c7e38]">
               <FiShoppingCart size={20} />
             </button>
           </div>
