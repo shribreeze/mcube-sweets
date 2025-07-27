@@ -115,11 +115,29 @@ export default function SweetGrid() {
 
   return (
     <div className="px-4 py-8 max-w-screen-xl mx-auto">
-      <h2 className="text-3xl md:text-5xl lg:text-6xl text-center mt-8 mb-6">
+      <h2 className="text-3xl md:text-5xl lg:text-6xl text-center mt-8">
           Sweets
-        </h2>
+      </h2>
+        <div className="flex justify-center gap-12 md:gap-24 lg:gap-24 m-12 flex-wrap">
+          <div className="flex flex-col items-center justify-center">
+            <img src="/images/shipping.png" className="py-6" alt="OP" width={40} height={40} />
+            <p>National Shipping in 4-6 days</p>
+          </div>
+          <div className="flex flex-col items-center justify-center">
+            <img src="/images/time.png" className="py-6" alt="ISO" width={40} height={40} />
+            <p>18 Days Shelf Life</p>
+          </div>
+          <div className="flex flex-col items-center justify-center">
+            <img src="/images/earth.png" className="py-6" alt="FSSAI" width={40} height={40} />
+            <p>International Shipping in 6-9 days</p>
+          </div>
+          <div className="flex flex-col items-center justify-center">
+            <img src="/images/no-preservatives.png" className="py-6" alt="FDA" width={40} height={40} />
+            <p>No Preservatives</p>
+          </div>
+        </div>
       {/* Filters */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-12">
         {categories.map((cat) => (
           <div
             key={cat}
@@ -127,14 +145,15 @@ export default function SweetGrid() {
               setSelectedCategory(cat);
               setCurrentPage(1);
             }}
-            className={`cursor-pointer border rounded-xl p-4 text-center transition hover:shadow-md ${
+            className={`cursor-pointer border rounded-xl text-center transition ${
               selectedCategory === cat
-                ? "bg-yellow-100 border-yellow-400"
-                : "bg-white"
+                ? "bg-transparent border-yellow-400"
+                : "bg-transparent border-none"
             }`}
           >
-            <div className="text-lg font-semibold">{cat}</div>
-            <div className="text-sm text-gray-600">
+            <img src={`/images/${cat.toLowerCase().replace(/ /g, "-")}.webp`} alt={cat} className="w-full h-48 mx-auto mb-2 rounded-xl" />
+            <h3 className="text-xl font-semibold">{cat}</h3>
+            <div className="text-sm text-gray-800">
               {countByCategory(cat)} Products
             </div>
           </div>
@@ -146,56 +165,57 @@ export default function SweetGrid() {
         {paginatedSweets.map((sweet) => (
           <div
             key={sweet.id}
-            className="border rounded-xl p-4 flex flex-col bg-white shadow hover:shadow-lg transition"
+            className="rounded-xl p-4 flex flex-col bg-transparent hover:border transition"
           >
             <img
               src={sweet.image}
               alt={sweet.name}
               className="h-40 object-cover mb-3 rounded-md"
             />
-            <div className="font-semibold text-lg">{sweet.name}</div>
-            <div className="text-yellow-800 font-bold mt-1">₹{sweet.price}</div>
+            <h3 className="font-semibold text-xl">{sweet.name}</h3>
+            <div className="text-[#9c7e38] font-bold mt-1">₹{sweet.price}</div>
 
-            {/* Weight Dropdown */}
-            <select
-              className="mt-2 p-1 border rounded"
-              value={weights[sweet.id] || "500g"}
-              onChange={(e) => handleWeight(sweet.id, e.target.value)}
-            >
-              <option value="500g">500g</option>
-              <option value="1kg">1kg</option>
-            </select>
+            <div className="flex items-center justify-between my-3">
+              {/* Weight Dropdown */}
+              <select
+                className="mt-2 p-1 border rounded"
+                value={weights[sweet.id] || "500g"}
+                onChange={(e) => handleWeight(sweet.id, e.target.value)}
+              >
+                <option value="500g">500g</option>
+                <option value="1kg">1kg</option>
+                <option value="1kg">2kg</option>
+              </select>
 
-            {/* Quantity & Cart */}
-            <div className="flex items-center justify-between mt-3">
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={() => handleQuantity(sweet.id, -1)}
-                  className="bg-gray-200 px-2 rounded"
-                >
-                  -
-                </button>
-                <span>{quantities[sweet.id] || 1}</span>
-                <button
-                  onClick={() => handleQuantity(sweet.id, 1)}
-                  className="bg-gray-200 px-2 rounded"
-                >
-                  +
-                </button>
-              </div>
-              <button className="bg-yellow-500 text-white px-4 py-1 rounded hover:bg-yellow-600">
+              {/* Quantity & Cart */}
+                <div className="flex items-center gap-2 mt-2 p-1  border rounded">
+                  <button
+                    onClick={() => handleQuantity(sweet.id, -1)}
+                    className="bg-transparent px-2 rounded"
+                  >
+                    -
+                  </button>
+                  <span>{quantities[sweet.id] || 1}</span>
+                  <button
+                    onClick={() => handleQuantity(sweet.id, 1)}
+                    className="bg-transparent px-2 rounded"
+                  >
+                    +
+                  </button>
+                </div>
+            </div>
+              <button className="bg-[#9c7e38] cursor-pointer text-white px-4 py-1 rounded hover:text-black hover:bg-transparent hover:border transition">
                 Add to Cart
               </button>
-            </div>
           </div>
         ))}
       </div>
 
       {/* Pagination */}
-      <div className="flex justify-center mt-8 gap-2">
+      <div className="flex justify-center mt-10 space-x-3 font-semibold">
         <button
           onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-          className="px-3 py-1 rounded border hover:bg-gray-100"
+          className="px-3 py-1 cursor-pointer"
         >
           &lt;
         </button>
@@ -203,10 +223,10 @@ export default function SweetGrid() {
           <button
             key={i + 1}
             onClick={() => setCurrentPage(i + 1)}
-            className={`px-3 py-1 rounded-full border ${
+            className={`px-3 py-1 rounded-full cursor-pointer ${
               currentPage === i + 1
                 ? "bg-yellow-400 text-white"
-                : "hover:bg-gray-100"
+                : "hover:bg-transparent"
             }`}
           >
             {i + 1}
@@ -214,7 +234,7 @@ export default function SweetGrid() {
         ))}
         <button
           onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-          className="px-3 py-1 rounded border hover:bg-gray-100"
+          className="px-3 py-1 rounded cursor-pointer"
         >
           &gt;
         </button>

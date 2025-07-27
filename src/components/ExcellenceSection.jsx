@@ -30,15 +30,16 @@ const ExcellenceSection = () => {
                 Quality that Ddlights, in every bite
               </h2>
               <p className="mb-6 leading-relaxed">
-                At MCube Sweets, we blend tradition with precision. Every sweet is
-                prepared using premium-grade ingredients and time-honored recipes
-                that have delighted generations. From sourcing to crafting, our artisans ensure each bite brings
-                joy, purity, and the authentic taste of India to your celebration.
+                At Mcube, quality is at the heart of everything we do. Each mithai is a masterpiece, 
+                crafted with the finest ingredients. meticulous attention to detail, and a passion for perfection. 
+                From the first bite to the last, we promise a delightful experience that tantalizes your taste buds and 
+                leaves you craving more. Our dedication to excellence ensures that every sweet is a blend of tradition, 
+                innovation, and unmatched flavor.
               </p>
             </div>
             <div className="md:w-1/2 order-1 md:order-2">
               <img
-                src="/images/hero1.jpg"
+                src="/images/peda.webp"
                 alt="Kaju Katli and other sweets"
                 className="rounded-lg shadow-sm w-full md:max-w-md lg:max-w-sm mx-auto"
               />
@@ -53,7 +54,7 @@ const ExcellenceSection = () => {
           <div className="flex flex-col md:flex-row items-center gap-10">
             <div className="md:w-1/2">
               <img
-                src="/images/hero1.jpg"
+                src="/images/diwali-sweets-2.jpg"
                 alt="Family behind MCube Sweets"
                 className="rounded-xl shadow-md w-full md:max-w-md lg:max-w-sm mx-auto"
               />
@@ -66,10 +67,8 @@ const ExcellenceSection = () => {
                 Taste of Sweet India
               </h2>
               <p className="leading-relaxed">
-                MCube Sweets was born out of a love for India’s rich dessert traditions.
-                What began as a humble kitchen vision is now a trusted name for purity,
-                authenticity, and taste. We strive to spread sweetness to every home,
-                festival, and occasion.
+                We believe that desserts are more than just treats-they're moments of joy, love, and togetherness. 
+                From traditional favorites to innovative confections, our creations are crafted with the finest ingredients and a passion for perfection.
               </p>
             </div>
           </div>
@@ -88,14 +87,15 @@ const ExcellenceSection = () => {
                 Luxurious Mithais, Accessible To Everyone
               </h2>
               <p className="leading-relaxed">
-                Every sweet at MCube is made using traditional techniques passed down
-                over generations. We honor the legacy of sweet-making with modern
-                precision to ensure purity, taste, and freshness in every bite.
+                Our luxurious mithais are crafted with the finest ingredients, 
+                ensuring a melt-in-your-mouth experience that speaks of elegance and quality. 
+                Yet, our mission goes beyond indulgence we believe that these exquisite delights should be accessible to everyone, 
+                bringing a touch of luxury to your everyday moments.
               </p>
             </div>
             <div className="md:w-1/2 order-1 md:order-2">
               <img
-                src="/images/hero1.jpg"
+                src="/images/rasgulla-avacado.jpg"
                 alt="Handcrafted sweets being made"
                 className="rounded-xl shadow-md w-full md:max-w-md lg:max-w-sm mx-auto"
               />
@@ -108,14 +108,12 @@ const ExcellenceSection = () => {
       <section className="py-12 container mx-auto px-4">
         <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif text-center mb-8">Awards and Accreditations</h2>
         <p className="text-center max-w-6xl mx-auto mb-8 ">
-          Our commitment to quality and excellence has been recognized through various awards and certifications. We
-          adhere to the highest standards of food safety and quality, ensuring that our customers get nothing but the
-          best.
+          A Legacy of Excellence Recognized Globally At Mcube, our passion for crafting luxurious mithais has earned us recognition from renowned institutions and 
+          delighted customers worldwide. Our awards and accreditations reflect our unwavering commitment to quality. innovation, and tradition.
         </p>
         <p className="text-center max-w-6xl mx-auto mb-12">
-          Our commitment to quality and excellence has been recognized through various awards and certifications. We
-          adhere to the highest standards of food safety and quality, ensuring that our customers get nothing but the
-          best.
+          From being honored for our exquisite flavors to receiving accolades for sustainability and craftsmanship, each recognition motivates us to continue raising the bar. 
+          We are proud to be a trusted name synonymous with exceptional mithais that bring joy to every occasion.
         </p>
         <h3 className="text-lg md:text-2xl font-medium mb-2 text-center">
           Priority
