@@ -1,14 +1,52 @@
+'use client';
+
 import React from 'react';
+import { motion } from 'framer-motion';
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i = 1) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.2,
+      duration: 0.6,
+      ease: 'easeOut',
+    },
+  }),
+};
 
 const ContactUs = () => {
   return (
     <section className="py-16 px-4 md:px-20 bg-transparent">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-center mb-8" id='contactus'>Contact Us</h2>
-        <p className="px-2 md:px-20 lg:px-32 items-center text-center mb-12 leading-relaxed">
+      <motion.div
+        className="max-w-4xl mx-auto"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <motion.h2
+          className="text-3xl md:text-5xl lg:text-6xl font-bold text-center mb-8"
+          id="contactus"
+          variants={fadeInUp}
+          custom={1}
+        >
+          Contact Us
+        </motion.h2>
+
+        <motion.p
+          className="px-2 md:px-20 lg:px-32 items-center text-center mb-12 leading-relaxed"
+          variants={fadeInUp}
+          custom={2}
+        >
           Do you have any question?
-        </p>
-        <form className="space-y-6">
+        </motion.p>
+
+        <motion.form
+          className="space-y-6"
+          variants={fadeInUp}
+          custom={3}
+        >
           {/* Name and Email */}
           <div className="flex flex-col md:flex-row gap-4">
             <input
@@ -39,8 +77,8 @@ const ContactUs = () => {
               Send Message
             </button>
           </div>
-        </form>
-      </div>
+        </motion.form>
+      </motion.div>
     </section>
   );
 };

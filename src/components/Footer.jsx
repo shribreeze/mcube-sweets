@@ -1,12 +1,33 @@
+'use client';
+
 import { Facebook, Instagram, Mail, MapPin, Phone, Twitter } from "lucide-react";
+import { motion } from "framer-motion";
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i = 1) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.2,
+      duration: 0.6,
+      ease: 'easeOut',
+    },
+  }),
+};
 
 export default function Footer() {
   return (
     <footer className="bg-transparent pt-12 pb-6">
-      <div className="container mx-auto px-4 md:px-20 lg:px-32  ">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <div className="container mx-auto px-4 md:px-20 lg:px-32">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
           {/* Logo and Social */}
-          <div className="flex flex-col items-center md:items-start">
+          <motion.div className="flex flex-col items-center md:items-start" variants={fadeInUp} custom={1}>
             <div className="relative mb-4">
               <img
                 src="/logo.png"
@@ -30,41 +51,22 @@ export default function Footer() {
                 <Twitter className="h-5 w-5" />
               </a>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="text-center md:text-left">
+          {/* Quick Links */}
+          <motion.div className="text-center md:text-left" variants={fadeInUp} custom={2}>
             <h3 className="text-2xl font-medium text-gray-900 mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li>
-                <a to="/" className="text-gray-800 hover:text-[#9c7e38]">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a to="/about" className="text-gray-800 hover:text-[#9c7e38]">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a to="/sweets" className="text-gray-800 hover:text-[#9c7e38]">
-                  Sweets
-                </a>
-              </li>
-              <li>
-                <a to="/shop" className="text-gray-800 hover:text-[#9c7e38]">
-                  Shop
-                </a>
-              </li>
-              <li>
-                <a to="/contact" className="text-gray-800 hover:text-[#9c7e38]">
-                  Contact Us
-                </a>
-              </li>
+              <li><a to="/" className="text-gray-800 hover:text-[#9c7e38]">Home</a></li>
+              <li><a to="/about" className="text-gray-800 hover:text-[#9c7e38]">About Us</a></li>
+              <li><a to="/sweets" className="text-gray-800 hover:text-[#9c7e38]">Sweets</a></li>
+              <li><a to="/shop" className="text-gray-800 hover:text-[#9c7e38]">Shop</a></li>
+              <li><a to="/contact" className="text-gray-800 hover:text-[#9c7e38]">Contact Us</a></li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Contact Info */}
-          <div className="text-center md:text-left">
+          <motion.div className="text-center md:text-left" variants={fadeInUp} custom={3}>
             <h3 className="text-2xl font-medium text-gray-900 mb-4">Contact Info</h3>
             <address className="not-italic text-gray-800 space-y-2">
               <div className="flex flex-col space-x-4 mt-4 leading-8">
@@ -82,13 +84,19 @@ export default function Footer() {
                 </div>
               </div>
             </address>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Copyright */}
-        <div className="border-t border-[#9c7e38] pt-6 mt-8 text-center text-gray-800 text-base">
+        <motion.div
+          className="border-t border-[#9c7e38] pt-6 mt-8 text-center text-gray-800 text-base"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6 }}
+        >
           <p>Copyright © 2025 Mcube Web Design. All Rights Reserved.</p>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );

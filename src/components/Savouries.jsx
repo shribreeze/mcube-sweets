@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 const sweetData = [
   {
@@ -59,7 +60,6 @@ const sweetData = [
   },
 ];
 
-
 export default function Savouries() {
   const [quantities, setQuantities] = useState({});
   const [weights, setWeights] = useState({});
@@ -77,58 +77,65 @@ export default function Savouries() {
 
   return (
     <div className="px-4 py-8 max-w-screen-xl mx-auto">
-      <h2 className="text-3xl md:text-5xl lg:text-6xl text-center my-8"  id="savouries">
-          Savouries
+      <h2
+        className="text-3xl md:text-5xl lg:text-6xl text-center my-8"
+        id="savouries"
+      >
+        Savouries
       </h2>
-      
-      {/* Sweets Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {sweetData.map((sweet) => (
-          <div
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 lg:grid-cols-4">
+        {sweetData.map((sweet, i) => (
+          <motion.div
             key={sweet.id}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: i * 0.1 }}
+            viewport={{ once: true }}
             className="rounded-xl p-4 flex flex-col bg-transparent hover:border transition"
           >
             <img
               src={sweet.image}
               alt={sweet.name}
-              className="h-40 object-cover mb-3 rounded-md"
+              className="h-36 sm:h-40 object-cover mb-3 rounded-md mx-auto"
             />
-            <h3 className="font-semibold text-xl">{sweet.name}</h3>
-            <div className="text-[#9c7e38] font-bold mt-1">₹{sweet.price}</div>
+            <h3 className="font-semibold text-lg sm:text-xl text-center sm:text-left">{sweet.name}</h3>
+            <div className="text-[#9c7e38] font-bold mt-1 text-center sm:text-left">
+              ₹{sweet.price}
+            </div>
 
-            <div className="flex items-center justify-between my-3">
-              {/* Weight Dropdown */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 my-3">
               <select
-                className="mt-2 p-1 border border-[#9c7e38] rounded"
+                className="p-1 border border-[#9c7e38] rounded w-full sm:w-auto"
                 value={weights[sweet.id] || "500g"}
                 onChange={(e) => handleWeight(sweet.id, e.target.value)}
               >
                 <option value="500g">500g</option>
                 <option value="1kg">1kg</option>
-                <option value="1kg">2kg</option>
+                <option value="2kg">2kg</option>
               </select>
 
-              {/* Quantity & Cart */}
-                <div className="flex items-center gap-2 mt-2 p-1  border border-[#9c7e38] rounded">
-                  <button
-                    onClick={() => handleQuantity(sweet.id, -1)}
-                    className="bg-transparent px-2 rounded"
-                  >
-                    -
-                  </button>
-                  <span>{quantities[sweet.id] || 1}</span>
-                  <button
-                    onClick={() => handleQuantity(sweet.id, 1)}
-                    className="bg-transparent px-2 rounded"
-                  >
-                    +
-                  </button>
-                </div>
+              <div className="flex items-center justify-center sm:justify-start gap-2 border border-[#9c7e38] rounded px-2 py-1">
+                <button
+                  onClick={() => handleQuantity(sweet.id, -1)}
+                  className="bg-transparent"
+                >
+                  -
+                </button>
+                <span>{quantities[sweet.id] || 1}</span>
+                <button
+                  onClick={() => handleQuantity(sweet.id, 1)}
+                  className="bg-transparent"
+                >
+                  +
+                </button>
+              </div>
             </div>
-              <button className="bg-[#9c7e38] cursor-pointer text-white px-4 py-1 rounded hover:text-black hover:bg-transparent hover:border transition">
-                Add to Cart
-              </button>
-          </div>
+
+            <button className="bg-[#9c7e38] cursor-pointer text-white px-4 py-1 rounded hover:text-black hover:bg-transparent hover:border transition">
+              Add to Cart
+            </button>
+          </motion.div>
         ))}
       </div>
     </div>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 const sweetData = [
   {
@@ -115,12 +116,7 @@ const sweetData = [
   },
 ];
 
-const categories = [
-  "All Sweets",
-  "Ghee Sweets",
-  "Traditional Sweets",
-  "Tea Time Snacks",
-];
+const categories = ["All Sweets", "Ghee Sweets", "Traditional Sweets", "Tea Time Snacks"];
 
 export default function SweetGrid() {
   const [selectedCategory, setSelectedCategory] = useState("All Sweets");
@@ -158,30 +154,37 @@ export default function SweetGrid() {
   return (
     <div className="px-4 py-8 max-w-screen-xl mx-auto">
       <h2 className="text-3xl md:text-5xl lg:text-6xl text-center mt-8" id="sweets">
-          Sweets
+        Sweets
       </h2>
-        <div className="flex justify-center gap-12 md:gap-24 lg:gap-24 m-12 flex-wrap">
-          <div className="flex flex-col items-center justify-center">
-            <img src="/images/shipping.png" className="py-6" alt="OP" width={40} height={40} />
-            <p>National Shipping in 4-6 days</p>
+
+      {/* Info Icons */}
+      <div className="flex justify-center gap-8 sm:gap-12 md:gap-24 m-12 flex-wrap">
+        {[
+          { img: "shipping", text: "National Shipping in 4-6 days" },
+          { img: "time", text: "18 Days Shelf Life" },
+          { img: "earth", text: "International Shipping in 6-9 days" },
+          { img: "no-preservatives", text: "No Preservatives" },
+        ].map(({ img, text }, i) => (
+          <div key={i} className="flex flex-col items-center justify-center text-center text-sm sm:text-base">
+            <img src={`/images/${img}.png`} alt={text} width={40} height={40} className="py-4" />
+            <p>{text}</p>
           </div>
-          <div className="flex flex-col items-center justify-center">
-            <img src="/images/time.png" className="py-6" alt="ISO" width={40} height={40} />
-            <p>18 Days Shelf Life</p>
-          </div>
-          <div className="flex flex-col items-center justify-center">
-            <img src="/images/earth.png" className="py-6" alt="FSSAI" width={40} height={40} />
-            <p>International Shipping in 6-9 days</p>
-          </div>
-          <div className="flex flex-col items-center justify-center">
-            <img src="/images/no-preservatives.png" className="py-6" alt="FDA" width={40} height={40} />
-            <p>No Preservatives</p>
-          </div>
-        </div>
-      {/* Filters */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-12">
+        ))}
+      </div>
+
+      {/* Category Filters */}
+      <motion.div
+        className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-12"
+        initial="hidden"
+        animate="visible"
+        variants={{
+          visible: {
+            transition: { staggerChildren: 0.1 }
+          }
+        }}
+      >
         {categories.map((cat) => (
-          <div
+          <motion.div
             key={cat}
             onClick={() => {
               setSelectedCategory(cat);
@@ -189,25 +192,51 @@ export default function SweetGrid() {
             }}
             className={`cursor-pointer border rounded-xl text-center transition ${
               selectedCategory === cat
-                ? "bg-transparent border-[#9c7e38]"
-                : "bg-transparent border-none"
+                ? "border-[#9c7e38]"
+                : "border-transparent"
             }`}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 }
+            }}
           >
-            <img src={`/images/${cat.toLowerCase().replace(/ /g, "-")}.webp`} alt={cat} className="w-full h-48 mx-auto mb-2 rounded-xl" />
+            <img
+              src={`/images/${cat.toLowerCase().replace(/ /g, "-")}.webp`}
+              alt={cat}
+              className="w-full h-48 mx-auto mb-2 rounded-xl object-cover"
+            />
             <h3 className="text-xl font-semibold">{cat}</h3>
             <div className="text-sm text-gray-800">
               {countByCategory(cat)} Products
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
-      {/* Sweets Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {/* Sweet Cards */}
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+        initial="hidden"
+        animate="visible"
+        variants={{
+          visible: {
+            transition: {
+              staggerChildren: 0.05,
+            },
+          },
+        }}
+      >
         {paginatedSweets.map((sweet) => (
-          <div
+          <motion.div
             key={sweet.id}
-            className="rounded-xl p-4 flex flex-col bg-transparent hover:border transition"
+            className="rounded-xl p-4 flex flex-col bg-transparent transition"
+            whileHover={{ scale: 1.02 }}
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 },
+            }}
           >
             <img
               src={sweet.image}
@@ -226,38 +255,44 @@ export default function SweetGrid() {
               >
                 <option value="500g">500g</option>
                 <option value="1kg">1kg</option>
-                <option value="1kg">2kg</option>
+                <option value="2kg">2kg</option>
               </select>
 
-              {/* Quantity & Cart */}
-                <div className="flex items-center gap-2 mt-2 p-1  border border-[#9c7e38] rounded">
-                  <button
-                    onClick={() => handleQuantity(sweet.id, -1)}
-                    className="bg-transparent px-2 rounded"
-                  >
-                    -
-                  </button>
-                  <span>{quantities[sweet.id] || 1}</span>
-                  <button
-                    onClick={() => handleQuantity(sweet.id, 1)}
-                    className="bg-transparent px-2 rounded"
-                  >
-                    +
-                  </button>
-                </div>
+              {/* Quantity Buttons */}
+              <div className="flex items-center gap-2 mt-2 p-1 border border-[#9c7e38] rounded">
+                <button
+                  onClick={() => handleQuantity(sweet.id, -1)}
+                  className="px-2"
+                >
+                  -
+                </button>
+                <span>{quantities[sweet.id] || 1}</span>
+                <button
+                  onClick={() => handleQuantity(sweet.id, 1)}
+                  className="px-2"
+                >
+                  +
+                </button>
+              </div>
             </div>
-              <button className="bg-[#9c7e38] cursor-pointer text-white px-4 py-1 rounded hover:text-black hover:bg-transparent hover:border transition">
-                Add to Cart
-              </button>
-          </div>
+
+            <button className="bg-[#9c7e38] text-white px-4 py-1 rounded hover:text-black hover:bg-transparent hover:border transition">
+              Add to Cart
+            </button>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       {/* Pagination */}
-      <div className="flex justify-center mt-10 space-x-3 font-semibold">
+      <motion.div
+        className="flex justify-center mt-10 space-x-3 font-semibold"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.3 }}
+      >
         <button
           onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-          className="px-3 py-1 cursor-pointer"
+          className="px-3 py-1"
         >
           &lt;
         </button>
@@ -265,10 +300,8 @@ export default function SweetGrid() {
           <button
             key={i + 1}
             onClick={() => setCurrentPage(i + 1)}
-            className={`px-3 py-1 rounded-full cursor-pointer ${
-              currentPage === i + 1
-                ? "bg-[#9c7e38] text-white"
-                : "hover:bg-transparent"
+            className={`px-3 py-1 rounded-full ${
+              currentPage === i + 1 ? "bg-[#9c7e38] text-white" : ""
             }`}
           >
             {i + 1}
@@ -276,11 +309,11 @@ export default function SweetGrid() {
         ))}
         <button
           onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-          className="px-3 py-1 rounded cursor-pointer"
+          className="px-3 py-1"
         >
           &gt;
         </button>
-      </div>
+      </motion.div>
     </div>
   );
 }
