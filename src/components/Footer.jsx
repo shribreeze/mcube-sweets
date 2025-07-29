@@ -26,7 +26,6 @@ export default function Footer() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
-          {/* Logo and Social */}
           <motion.div className="flex flex-col items-center md:items-start" variants={fadeInUp} custom={1}>
             <div className="relative mb-4">
               <img
@@ -37,7 +36,7 @@ export default function Footer() {
                 className="object-contain"
               />
             </div>
-            <div className="relative mb-4">
+            <div className="relative mb-4 text-center md:text-left">
               <p>Wide varities of sweets and delicacies to choose from Explore the deliciousness that awaits you!</p>
             </div>
             <div className="flex space-x-4 mt-4">
@@ -53,43 +52,39 @@ export default function Footer() {
             </div>
           </motion.div>
 
-          {/* Quick Links */}
           <motion.div className="text-center md:text-left" variants={fadeInUp} custom={2}>
             <h3 className="text-2xl font-medium text-gray-900 mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li><a to="/" className="text-gray-800 hover:text-[#9c7e38]">Home</a></li>
               <li><a to="/about" className="text-gray-800 hover:text-[#9c7e38]">About Us</a></li>
-              <li><a to="/sweets" className="text-gray-800 hover:text-[#9c7e38]">Sweets</a></li>
-              <li><a to="/shop" className="text-gray-800 hover:text-[#9c7e38]">Shop</a></li>
               <li><a to="/contact" className="text-gray-800 hover:text-[#9c7e38]">Contact Us</a></li>
+              <li><a to="/shipping" className="text-gray-800 hover:text-[#9c7e38]">Shipping Policy</a></li>
+              <li><a to="/cancellation" className="text-gray-800 hover:text-[#9c7e38]">Cancellation & Refund</a></li>
             </ul>
           </motion.div>
 
-          {/* Contact Info */}
           <motion.div className="text-center md:text-left" variants={fadeInUp} custom={3}>
             <h3 className="text-2xl font-medium text-gray-900 mb-4">Contact Info</h3>
             <address className="not-italic text-gray-800 space-y-2">
               <div className="flex flex-col space-x-4 mt-4 leading-8">
                 <div>
                   <MapPin className="h-5 w-5 text-[#9c7e38] inline-block mr-2" />
-                  <span>123 Sweet Street, Dessert City</span>
+                  <span>D.No 19 High School Road, Ambasamudram, Tirunelveli, Tamilnadu, PIN - 627401, India</span>
                 </div>
                 <div>
                   <Phone className="h-5 w-5 text-[#9c7e38] inline-block mr-2" />
-                  <span>+1 234 567 8900</span>
+                  <span>+91 7695978704</span>
                 </div>
                 <div>
                   <Mail className="h-5 w-5 text-[#9c7e38] inline-block mr-2" />
-                  <span>info@mcubesweets.com</span>
+                  <span>contact@mcubeinfotech.com</span>
                 </div>
               </div>
             </address>
           </motion.div>
         </motion.div>
 
-        {/* Copyright */}
         <motion.div
-          className="border-t border-[#9c7e38] pt-6 mt-8 text-center text-gray-800 text-base"
+          className="border-t border-[#9c7e38] pt-6 mt-8 text-center text-gray-800 text-sm md:text-base"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}

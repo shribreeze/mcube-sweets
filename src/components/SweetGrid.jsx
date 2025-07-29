@@ -116,6 +116,15 @@ const sweetData = [
   },
 ];
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.15, duration: 0.6 },
+  }),
+};
+
 const categories = ["All Sweets", "Ghee Sweets", "Traditional Sweets", "Tea Time Snacks"];
 
 export default function SweetGrid() {
@@ -153,12 +162,22 @@ export default function SweetGrid() {
 
   return (
     <div className="px-4 py-8 max-w-screen-xl mx-auto">
-      <h2 className="text-3xl md:text-5xl lg:text-6xl text-center mt-8" id="sweets">
+      <motion.h2 className="text-3xl md:text-5xl lg:text-6xl text-center mt-8" id="sweets"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
         Sweets
-      </h2>
+      </motion.h2>
 
       {/* Info Icons */}
-      <div className="flex justify-center gap-8 sm:gap-12 md:gap-24 m-12 flex-wrap">
+      <motion.div className="flex justify-center gap-6 md:gap-24 m-12 flex-wrap"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
         {[
           { img: "shipping", text: "National Shipping in 4-6 days" },
           { img: "time", text: "18 Days Shelf Life" },
@@ -167,10 +186,10 @@ export default function SweetGrid() {
         ].map(({ img, text }, i) => (
           <div key={i} className="flex flex-col items-center justify-center text-center text-sm sm:text-base">
             <img src={`/images/${img}.png`} alt={text} width={40} height={40} className="py-4" />
-            <p>{text}</p>
+            <p className="hidden md:block">{text}</p>
           </div>
         ))}
-      </div>
+      </motion.div>
 
       {/* Category Filters */}
       <motion.div
@@ -241,15 +260,15 @@ export default function SweetGrid() {
             <img
               src={sweet.image}
               alt={sweet.name}
-              className="h-40 object-cover mb-3 rounded-md"
+              className="h-40 object-cover mb-3 rounded-md mx-auto"
             />
             <h3 className="font-semibold text-xl">{sweet.name}</h3>
             <div className="text-[#9c7e38] font-bold mt-1">₹{sweet.price}</div>
 
             <div className="flex items-center justify-between my-3">
-              {/* Weight Dropdown */}
+             
               <select
-                className="mt-2 p-1 border border-[#9c7e38] rounded"
+                className="mt-2 p-1 border border-[#9c7e38] rounded cursor-pointer"
                 value={weights[sweet.id] || "500g"}
                 onChange={(e) => handleWeight(sweet.id, e.target.value)}
               >
@@ -258,25 +277,24 @@ export default function SweetGrid() {
                 <option value="2kg">2kg</option>
               </select>
 
-              {/* Quantity Buttons */}
               <div className="flex items-center gap-2 mt-2 p-1 border border-[#9c7e38] rounded">
                 <button
                   onClick={() => handleQuantity(sweet.id, -1)}
-                  className="px-2"
+                  className="px-2 cursor-pointer"
                 >
                   -
                 </button>
                 <span>{quantities[sweet.id] || 1}</span>
                 <button
                   onClick={() => handleQuantity(sweet.id, 1)}
-                  className="px-2"
+                  className="px-2 cursor-pointer"
                 >
                   +
                 </button>
               </div>
             </div>
 
-            <button className="bg-[#9c7e38] text-white px-4 py-1 rounded hover:text-black hover:bg-transparent hover:border transition">
+            <button className="bg-[#9c7e38] cursor-pointer border text-white px-4 py-1 rounded hover:text-[#9c7e38] hover:bg-transparent hover:border transition">
               Add to Cart
             </button>
           </motion.div>
@@ -292,7 +310,7 @@ export default function SweetGrid() {
       >
         <button
           onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-          className="px-3 py-1"
+          className="px-3 py-1 cursor-pointer"
         >
           &lt;
         </button>
@@ -300,7 +318,7 @@ export default function SweetGrid() {
           <button
             key={i + 1}
             onClick={() => setCurrentPage(i + 1)}
-            className={`px-3 py-1 rounded-full ${
+            className={`px-3 py-1 rounded-full cursor-pointer ${
               currentPage === i + 1 ? "bg-[#9c7e38] text-white" : ""
             }`}
           >
@@ -309,7 +327,7 @@ export default function SweetGrid() {
         ))}
         <button
           onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-          className="px-3 py-1"
+          className="px-3 py-1 cursor-pointer"
         >
           &gt;
         </button>

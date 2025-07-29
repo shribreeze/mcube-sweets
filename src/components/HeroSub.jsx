@@ -37,9 +37,9 @@ const HeroSub = () => {
           <img
             src={item.src}
             alt={item.alt}
-            className="w-12 h-12 sm:w-14 sm:h-14"
+            className="w-10 h-10 sm:w-14 sm:h-14"
           />
-          <h3 className="text-base sm:text-xl md:text-2xl font-medium">
+          <h3 className="text-md sm:text-xl md:text-2xl font-medium">
             {item.label}
           </h3>
         </motion.div>

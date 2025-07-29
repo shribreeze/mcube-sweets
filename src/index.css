@@ -3,17 +3,18 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
   font-family: Poppins, sans-serif;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-image: url('./assets/bgnew.png');
-  background-size: cover;
+
+  background-image: url('./assets/bg.jpeg');
   background-repeat: repeat;
   background-position: center;
-  background-attachment: fixed;
+  background-attachment: scroll;
+  background-size: 400px 400px;
+
 
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -24,9 +25,9 @@ html {
   scroll-behavior: smooth;
 }
 
-
 body {
   @apply overflow-x-hidden text-gray-900;
+  background: none;
 }
 
 h1, h2, h3, h4, h5, h6 {

@@ -17,7 +17,7 @@ const ExcellenceSection = () => {
       {/* Excellence Section */}
       <section className="py-16">
         <motion.h2
-          className="text-3xl md:text-5xl lg:text-6xl text-center mt-12 mb-6"
+          className="text-3xl md:text-5xl lg:text-6xl px-1 text-center mt-12 mb-6"
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -26,7 +26,7 @@ const ExcellenceSection = () => {
           Excellence in Every Morsel
         </motion.h2>
         <motion.p
-          className="text-center mb-12 leading-relaxed max-w-4xl mx-auto"
+          className="text-center mb-2 md:mb-12 leading-relaxed max-w-4xl mx-auto"
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
@@ -46,7 +46,7 @@ const ExcellenceSection = () => {
           <img
             src="/images/hero5.jpg"
             alt="Premium Indian sweets in tray"
-            className="w-full h-auto shadow-lg"
+            className="hidden md:block w-full h-auto shadow-lg"
           />
         </motion.div>
       </section>
