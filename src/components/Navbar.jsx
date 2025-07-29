@@ -22,7 +22,7 @@ const Header = () => {
     <header className="bg-transparent border-b border-amber-100 shadow-sm top-0 z-50">
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
+          
           <motion.a
             href="/"
             className="flex items-center"
@@ -37,7 +37,7 @@ const Header = () => {
             />
           </motion.a>
 
-          {/* Desktop Nav */}
+          
           <nav className="hidden md:flex space-x-8">
             {navItems.map((item, index) => (
               <motion.a
@@ -54,7 +54,7 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Icons */}
+          
           <motion.div
             className="hidden md:flex items-center space-x-6 text-gray-900"
             initial={{ opacity: 0, y: -10 }}
@@ -66,7 +66,7 @@ const Header = () => {
             <button className="hover:text-[#9c7e38] cursor-pointer"><FiShoppingCart size={20} /></button>
           </motion.div>
 
-          {/* Mobile Menu Button */}
+         
           <button
             className="md:hidden text-gray-900"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -76,7 +76,7 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div

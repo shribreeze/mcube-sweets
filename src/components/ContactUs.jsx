@@ -72,7 +72,7 @@ const ContactUs = () => {
           <div className="text-center">
             <button
               type="submit"
-              className="px-8 py-3 bg-[#9c7e38] text-white cursor-pointer rounded-sm hover:bg-transparent hover:border hover:text-black hover:border-[#9c7e38] transition"
+              className="px-8 py-3 bg-[#9c7e38] text-white border cursor-pointer rounded-sm hover:bg-transparent hover:border hover:text-[#9c7e38] hover:border-[#9c7e38] transition"
             >
               Send Message
             </button>

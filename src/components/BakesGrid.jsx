@@ -4,73 +4,51 @@ import { motion } from "framer-motion";
 const bakeData = [
   {
     id: 1,
-    name: "Kaju Katli",
-    price: 500,
-    image: "https://via.placeholder.com/150",
-    category: "Ghee bakes",
+    name: "BANANACAKE",
+    price: 100,
+    image: "/images/bakes/BANANACAKE.webp",
   },
   {
     id: 2,
-    name: "Ladoo",
-    price: 400,
-    image: "https://via.placeholder.com/150",
-    category: "Traditional bakes",
+    name: "Ghee Cake",
+    price: 200,
+    image: "/images/bakes/Ghee-Cake.jpg",
   },
   {
     id: 3,
-    name: "Barfi",
-    price: 450,
-    image: "https://via.placeholder.com/150",
-    category: "All bakes",
+    name: "Jam Roll",
+    price: 150,
+    image: "/images/bakes/jam-roll.jpeg",
   },
   {
     id: 4,
-    name: "Soan Papdi",
-    price: 300,
-    image: "https://via.placeholder.com/150",
-    category: "Tea Time Snacks",
+    name: "Cup Cake",
+    price: 100,
+    image: "/images/bakes/cup-cake.jpg",
   },
   {
     id: 5,
-    name: "Rasgulla",
-    price: 380,
-    image: "https://via.placeholder.com/150",
-    category: "All bakes",
+    name: "Cream Roll",
+    price: 180,
+    image: "/images/bakes/CreamRoll.jpg",
   },
   {
     id: 6,
-    name: "Mysore Pak",
-    price: 420,
-    image: "https://via.placeholder.com/150",
-    category: "Ghee bakes",
+    name: "Pancake",
+    price: 120,
+    image: "/images/bakes/pancake.webp",
   },
   {
     id: 7,
-    name: "Chikki",
-    price: 250,
-    image: "https://via.placeholder.com/150",
-    category: "Tea Time Snacks",
+    name: "Pastry",
+    price: 150,
+    image: "/images/bakes/pastry.webp",
   },
   {
     id: 8,
-    name: "Peda",
-    price: 390,
-    image: "https://via.placeholder.com/150",
-    category: "Traditional bakes",
-  },
-  {
-    id: 9,
-    name: "Jalebi",
-    price: 320,
-    image: "https://via.placeholder.com/150",
-    category: "All bakes",
-  },
-  {
-    id: 10,
-    name: "Halwa",
-    price: 310,
-    image: "https://via.placeholder.com/150",
-    category: "Traditional bakes",
+    name: "Sweet Bun",
+    price: 190,
+    image: "/images/bakes/sweet-bun.jpg",
   },
 ];
 
@@ -107,7 +85,6 @@ export default function BakesGrid() {
         Bakes
       </h2>
 
-      {/* Bakes Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {paginatedBakes.map((bake, i) => (
           <motion.div
@@ -121,7 +98,7 @@ export default function BakesGrid() {
             <img
               src={bake.image}
               alt={bake.name}
-              className="h-36 sm:h-40 object-cover mb-3 rounded-md mx-auto"
+              className="w-full h-48 object-cover mb-3 rounded-md mx-auto"
             />
             <h3 className="font-semibold text-lg sm:text-xl sm:text-left">
               {bake.name}
@@ -165,7 +142,6 @@ export default function BakesGrid() {
         ))}
       </div>
 
-      {/* Pagination */}
       <div className="flex justify-center mt-10 space-x-3 font-semibold">
         <button
           onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}

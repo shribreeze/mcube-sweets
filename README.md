@@ -1,12 +1,81 @@
-# React + Vite
+# MCube Sweets
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React-based website for MCube Sweets showcasing traditional Indian sweets, bakes, and savouries.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React 19** - Frontend framework
+- **Vite** - Build tool and dev server
+- **Tailwind CSS 4** - Styling framework
+- **Framer Motion** - Animations
+- **React Router DOM** - Client-side routing
+- **Lucide React & React Icons** - Icon libraries
+- **ESLint** - Code linting
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+
+- Node.js (v16 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd mcube-sweets
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+### Development
+
+Start the development server:
+```bash
+npm run dev
+```
+
+The application will be available at `http://localhost:5173`
+
+### Build
+
+Create a production build:
+```bash
+npm run build
+```
+
+### Preview
+
+Preview the production build locally:
+```bash
+npm run preview
+```
+
+### Linting
+
+Run ESLint to check code quality:
+```bash
+npm run lint
+```
+
+## Project Structure
+
+```
+src/
+├── components/     # React components
+│   ├── ui/        # Reusable UI components
+│   ├── Hero.jsx   # Hero section
+│   ├── Navbar.jsx # Navigation
+│   └── ...
+├── assets/        # Static assets
+├── App.jsx        # Main app component
+└── main.jsx       # Entry point
+
+public/
+├── images/        # Product images
+└── favicon.png    # Site favicon
+```

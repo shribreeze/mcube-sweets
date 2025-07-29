@@ -6,113 +6,113 @@ const sweetData = [
     id: 1,
     name: "Kaju Katli",
     price: 500,
-    image: "https://via.placeholder.com/150",
+    image: "/images/sweets/kajukatli.webp",
     category: "Ghee Sweets",
   },
   {
     id: 2,
-    name: "Ladoo",
-    price: 400,
-    image: "https://via.placeholder.com/150",
-    category: "Traditional Sweets",
+    name: "Barfi",
+    price: 450,
+    image: "/images/sweets/barfi.webp",
+    category: "All Sweets",
   },
   {
     id: 3,
-    name: "Barfi",
-    price: 450,
-    image: "https://via.placeholder.com/150",
-    category: "All Sweets",
+    name: "Ladoo",
+    price: 400,
+    image: "/images/sweets/laddu.webp",
+    category: "Traditional Sweets",
   },
   {
     id: 4,
     name: "Soan Papdi",
     price: 300,
-    image: "https://via.placeholder.com/150",
+    image: "/images/sweets/soan-papdi.webp",
     category: "Tea Time Snacks",
   },
   {
     id: 5,
     name: "Rasgulla",
     price: 380,
-    image: "https://via.placeholder.com/150",
+    image: "/images/sweets/rasgulla.webp",
     category: "All Sweets",
   },
   {
     id: 6,
     name: "Mysore Pak",
     price: 420,
-    image: "https://via.placeholder.com/150",
+    image: "/images/sweets/mysorepak.webp",
     category: "Ghee Sweets",
   },
   {
     id: 7,
     name: "Chikki",
     price: 250,
-    image: "https://via.placeholder.com/150",
+    image: "/images/sweets/chikki.jpg",
     category: "Tea Time Snacks",
   },
   {
     id: 8,
     name: "Peda",
     price: 390,
-    image: "https://via.placeholder.com/150",
+    image: "/images/sweets/peda.webp",
     category: "Traditional Sweets",
   },
   {
     id: 9,
     name: "Jalebi",
     price: 320,
-    image: "https://via.placeholder.com/150",
+    image: "/images/sweets/jalebi.webp",
     category: "All Sweets",
   },
   {
     id: 10,
     name: "Halwa",
     price: 310,
-    image: "https://via.placeholder.com/150",
-    category: "Traditional Sweets",
+    image: "/images/sweets/halwa.webp",
+    category: "Ghee Sweets",
   },
   {
     id: 11,
     name: "Kaju Katli",
     price: 500,
-    image: "https://via.placeholder.com/150",
-    category: "Ghee Sweets",
+    image: "/images/sweets/kajukatli.webp",
+    category: "Traditional Sweets",
   },
   {
     id: 12,
     name: "Ladoo",
     price: 400,
-    image: "https://via.placeholder.com/150",
-    category: "Traditional Sweets",
+    image: "/images/sweets/laddu.webp",
+    category: "Ghee Sweets",
   },
   {
     id: 13,
     name: "Barfi",
     price: 450,
-    image: "https://via.placeholder.com/150",
+    image: "/images/sweets/barfi.webp",
     category: "All Sweets",
   },
   {
     id: 14,
     name: "Soan Papdi",
     price: 300,
-    image: "https://via.placeholder.com/150",
+    image: "/images/sweets/soan-papdi.webp",
     category: "Tea Time Snacks",
   },
   {
     id: 15,
     name: "Rasgulla",
     price: 380,
-    image: "https://via.placeholder.com/150",
+    image: "/images/sweets/rasgulla.webp",
     category: "All Sweets",
   },
   {
     id: 16,
     name: "Mysore Pak",
     price: 420,
-    image: "https://via.placeholder.com/150",
-    category: "Ghee Sweets",
+    image: "/images/sweets/mysorepak.webp",
+    category: "Traditional Sweets",
   },
 ];
 
@@ -171,7 +171,7 @@ export default function SweetGrid() {
         Sweets
       </motion.h2>
 
-      {/* Info Icons */}
+      
       <motion.div className="flex justify-center gap-6 md:gap-24 m-12 flex-wrap"
         variants={fadeUp}
         initial="hidden"
@@ -191,7 +191,7 @@ export default function SweetGrid() {
         ))}
       </motion.div>
 
-      {/* Category Filters */}
+     
       <motion.div
         className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-12"
         initial="hidden"
@@ -234,7 +234,7 @@ export default function SweetGrid() {
         ))}
       </motion.div>
 
-      {/* Sweet Cards */}
+    
       <motion.div
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
         initial="hidden"
@@ -260,7 +260,7 @@ export default function SweetGrid() {
             <img
               src={sweet.image}
               alt={sweet.name}
-              className="h-40 object-cover mb-3 rounded-md mx-auto"
+              className="w-full h-48 object-cover mb-3 rounded-md mx-auto"
             />
             <h3 className="font-semibold text-xl">{sweet.name}</h3>
             <div className="text-[#9c7e38] font-bold mt-1">₹{sweet.price}</div>
@@ -301,7 +301,7 @@ export default function SweetGrid() {
         ))}
       </motion.div>
 
-      {/* Pagination */}
+
       <motion.div
         className="flex justify-center mt-10 space-x-3 font-semibold"
         initial={{ opacity: 0 }}

@@ -55,10 +55,10 @@ export default function Footer() {
           <motion.div className="text-center md:text-left" variants={fadeInUp} custom={2}>
             <h3 className="text-2xl font-medium text-gray-900 mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li><a to="/about" className="text-gray-800 hover:text-[#9c7e38]">About Us</a></li>
-              <li><a to="/contact" className="text-gray-800 hover:text-[#9c7e38]">Contact Us</a></li>
-              <li><a to="/shipping" className="text-gray-800 hover:text-[#9c7e38]">Shipping Policy</a></li>
-              <li><a to="/cancellation" className="text-gray-800 hover:text-[#9c7e38]">Cancellation & Refund</a></li>
+              <li><a to="/about" className="text-gray-800 hover:text-[#9c7e38] cursor-pointer">About Us</a></li>
+              <li><a to="/contact" className="text-gray-800 hover:text-[#9c7e38] cursor-pointer">Contact Us</a></li>
+              <li><a to="/shipping" className="text-gray-800 hover:text-[#9c7e38] cursor-pointer">Shipping Policy</a></li>
+              <li><a to="/cancellation" className="text-gray-800 hover:text-[#9c7e38] cursor-pointer">Cancellation & Refund</a></li>
             </ul>
           </motion.div>
 

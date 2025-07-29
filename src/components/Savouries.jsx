@@ -4,59 +4,51 @@ import { motion } from "framer-motion";
 const savouriesData = [
   {
     id: 1,
-    name: "Kaju Katli",
+    name: "Spicy Murukku",
     price: 500,
-    image: "https://via.placeholder.com/150",
-    category: "Ghee savouries",
+    image: "/images/savouries/SpicyMurkku.webp",
   },
   {
     id: 2,
-    name: "Ladoo",
+    name: "Pepper Karachev",
     price: 400,
-    image: "https://via.placeholder.com/150",
-    category: "Traditional savouries",
+    image: "/images/savouries/pepperKarachev.jpeg",
   },
   {
     id: 3,
-    name: "Barfi",
+    name: "Kadalai Mittai",
     price: 450,
-    image: "https://via.placeholder.com/150",
-    category: "All savouriess",
+    image: "/images/savouries/kadalai-mittai.jpg",
   },
   {
     id: 4,
-    name: "Soan Papdi",
+    name: "Nendram Chips",
     price: 300,
-    image: "https://via.placeholder.com/150",
-    category: "Tea Time Snacks",
+    image: "/images/savouries/NendramChips.jpg",
   },
   {
     id: 5,
-    name: "Rasgulla",
+    name: "Navadhaniyam",
     price: 380,
-    image: "https://via.placeholder.com/150",
-    category: "All savouriess",
+    image: "/images/savouries/navadhaniyam.webp",
   },
   {
     id: 6,
-    name: "Mysore Pak",
+    name: "Cashew Fry",
     price: 420,
-    image: "https://via.placeholder.com/150",
-    category: "Ghee savouriess",
+    image: "/images/savouries/fried-cashew.webp",
   },
   {
     id: 7,
-    name: "Chikki",
+    name: "Dal Samosa",
     price: 250,
-    image: "https://via.placeholder.com/150",
-    category: "Tea Time Snacks",
+    image: "/images/savouries/DaalSamosa.jpg",
   },
   {
     id: 8,
-    name: "Peda",
+    name: "Thattai",
     price: 390,
-    image: "https://via.placeholder.com/150",
-    category: "Traditional savouriess",
+    image: "/images/savouries/Thattai.webp",
   },
 ];
 
@@ -97,7 +89,7 @@ export default function Savouries() {
             <img
               src={savouries.image}
               alt={savouries.name}
-              className="h-36 sm:h-40 object-cover mb-3 rounded-md mx-auto"
+              className="w-full h-48 object-cover mb-3 rounded-md mx-auto"
             />
             <h3 className="font-semibold text-lg sm:text-xl sm:text-left">{savouries.name}</h3>
             <div className="text-[#9c7e38] font-bold mt-1 sm:text-left">

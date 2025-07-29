@@ -14,7 +14,6 @@ const fadeUp = {
 const ExcellenceSection = () => {
   return (
     <>
-      {/* Excellence Section */}
       <section className="py-16">
         <motion.h2
           className="text-3xl md:text-5xl lg:text-6xl px-1 text-center mt-12 mb-6"
@@ -51,7 +50,6 @@ const ExcellenceSection = () => {
         </motion.div>
       </section>
 
-      {/* Quality Section */}
       <section className="py-16 bg-transparent px-4 sm:px-6 lg:px-20 xl:px-32">
         <div className="container mx-auto">
           <motion.div
@@ -82,7 +80,6 @@ const ExcellenceSection = () => {
         </div>
       </section>
 
-      {/* About Us Section */}
       <section className="py-16 bg-transparent px-4 sm:px-6 lg:px-20 xl:px-32" id="aboutus">
         <div className="container mx-auto">
           <motion.div
@@ -115,7 +112,6 @@ const ExcellenceSection = () => {
         </div>
       </section>
 
-      {/* Traditional Methods Section */}
       <section className="py-16 bg-transparent px-4 sm:px-6 lg:px-20 xl:px-32">
         <div className="container mx-auto">
           <motion.div
@@ -150,7 +146,6 @@ const ExcellenceSection = () => {
         </div>
       </section>
 
-      {/* Awards Section */}
       <section className="py-12 px-4 sm:px-6 container mx-auto">
         <motion.h2
           className="text-3xl md:text-5xl lg:text-6xl font-serif text-center mb-8"
